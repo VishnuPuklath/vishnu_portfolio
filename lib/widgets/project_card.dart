@@ -8,46 +8,49 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.4,
+    return Container(
+      height: 300,
+      width: 300,
       child: Card(
+          color: Colors.blue[50],
           child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
             children: [
-              Icon(
-                Icons.build,
-                size: 18,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.build,
+                    size: 18,
+                  ),
+                  Text('Project name'),
+                  SizedBox()
+                ],
               ),
               const SizedBox(
-                width: 10,
+                height: 15,
               ),
-              Text('Project name')
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              'Project description ',
-            ),
-          ),
-          const Spacer(),
-          const Divider(),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ElevatedButton(
-                onPressed: () async {},
+              const Center(
                 child: Text(
-                  "View Project",
+                  'Project description ',
                 ),
               ),
-            ),
-          ),
-        ],
-      )),
+              const Spacer(),
+              const Divider(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () async {},
+                    child: const Text(
+                      "View Project",
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
