@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Experience',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                  fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                             Text(
                                 'Lorem Ipsum is simply dummy text ofthe industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'),
@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'About me',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                  fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                             Text(
                                 'Lorep into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum')
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Experience',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                  fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                             Text(
                                 'Lorem Ipsum is simply dummy text ofthe industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'),
@@ -228,6 +228,10 @@ class HomeScreen extends StatelessWidget {
           color: Color.fromRGBO(0, 0, 0, 1),
         ),
         ResponsiveRowColumn(
+          columnPadding: EdgeInsets.all(15),
+          rowPadding: EdgeInsets.all(15),
+          columnCrossAxisAlignment: CrossAxisAlignment.stretch,
+          rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
           layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
               ? ResponsiveRowColumnType.COLUMN
               : ResponsiveRowColumnType.ROW,
