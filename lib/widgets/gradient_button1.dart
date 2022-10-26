@@ -3,12 +3,13 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class GButton1 extends StatelessWidget {
-  GButton1({required this.text});
+  GButton1({required this.text, required this.onclickAction});
   String text;
+  Function() onclickAction;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 85,
+      width: 100,
       height: 20,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -23,8 +24,11 @@ class GButton1 extends StatelessWidget {
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
           ),
-          onPressed: () {},
-          child: Text(text)),
+          onPressed: onclickAction,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+          )),
     );
   }
 }

@@ -7,6 +7,7 @@ import 'package:portfolio_vishnu/constants.dart/data.dart';
 import 'package:portfolio_vishnu/widgets/gradient_button1.dart';
 import 'package:portfolio_vishnu/widgets/project_card.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   List<String> imageList = [
@@ -46,12 +47,28 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                GButton1(text: 'Email'),
+                GButton1(
+                    text: 'Resume',
+                    onclickAction: () async {
+                      final Uri _url = Uri.parse(resumeLink);
+                      await launchUrl(_url);
+                    }),
                 const SizedBox(
                   width: 10,
                 ),
                 GButton1(
-                  text: 'Resume',
+                  onclickAction: () async {
+                    try {
+                      final Uri emailUri = Uri(
+                        scheme: 'mailto',
+                        path: emailUrl,
+                      );
+                      await launchUrl(emailUri);
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                  },
+                  text: 'Contact',
                 )
               ],
             ),
@@ -305,21 +322,36 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        CarouselSlider(
-          items: imageList
-              .map((item) => Container(
-                    height: 200,
-                    width: 200,
+        const Center(
+          child: Text(
+            'TRAININGS GIVEN FOR STAKEHOLDERS',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Container(
+          color: Colors.blue[50],
+          child: CarouselSlider(
+            items: imageList
+                .map(
+                  (item) => Container(
                     child: Center(
-                        child: Image.network(
-                      item,
-                      fit: BoxFit.cover,
-                      width: 100,
-                    )),
-                  ))
-              .toList(),
-          options: CarouselOptions(
-              autoPlay: true, aspectRatio: 2.0, enlargeCenterPage: true),
+                      child: Image.network(
+                        item,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+            options: CarouselOptions(
+                height: 260,
+                autoPlay: true,
+                aspectRatio: 5.0,
+                enlargeCenterPage: true),
+          ),
         ),
         const Divider(
           color: Color.fromRGBO(0, 0, 0, 1),
